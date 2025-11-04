@@ -2,8 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 const Index = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const bonuses = [
     {
       title: "Бездепозитные бонусы",
@@ -65,10 +67,54 @@ const Index = () => {
             </div>
             <span className="text-lg font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Bezdep.love</span>
           </div>
-          <button className="md:hidden">
-            <Icon name="Menu" size={24} />
+          
+          <nav className="hidden md:flex gap-6">
+            <a href="#bonuses" className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium">
+              Бонусы
+            </a>
+            <a href="#casinos" className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium">
+              Казино
+            </a>
+          </nav>
+          
+          <button 
+            className="md:hidden text-foreground"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <Icon name={menuOpen ? "X" : "Menu"} size={24} />
           </button>
         </div>
+        
+        {menuOpen && (
+          <div className="md:hidden border-t border-border/30 bg-background/95 backdrop-blur-md animate-in slide-in-from-top-2 duration-200">
+            <nav className="container mx-auto px-4 py-4 flex flex-col gap-3">
+              <a 
+                href="#bonuses" 
+                className="text-foreground/80 hover:text-primary transition-colors text-base font-medium py-2"
+                onClick={() => setMenuOpen(false)}
+              >
+                Бонусы
+              </a>
+              <a 
+                href="#casinos" 
+                className="text-foreground/80 hover:text-primary transition-colors text-base font-medium py-2"
+                onClick={() => setMenuOpen(false)}
+              >
+                Казино
+              </a>
+              <Button 
+                className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-bold rounded-xl mt-2"
+                onClick={() => {
+                  window.open('https://cryptobosscasinopulse.com/?ref=MTQ2OTQyX3JlZmVycmFs', '_blank');
+                  setMenuOpen(false);
+                }}
+              >
+                <Icon name="Rocket" className="mr-2" size={18} />
+                Получить бонус
+              </Button>
+            </nav>
+          </div>
+        )}
       </header>
 
       <section className="relative overflow-hidden py-12 md:py-20">
