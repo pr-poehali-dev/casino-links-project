@@ -57,60 +57,52 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b border-border/50 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <header className="border-b border-border/30 backdrop-blur-md sticky top-0 z-50 bg-background/95">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-              <Icon name="Diamond" className="text-white" size={24} />
+            <div className="w-9 h-9 bg-gradient-to-br from-accent to-secondary rounded-lg flex items-center justify-center">
+              <Icon name="Diamond" className="text-white" size={20} />
             </div>
-            <span className="text-xl font-bold">CasinoHub</span>
+            <span className="text-lg font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Bezdep.love</span>
           </div>
-          <nav className="hidden md:flex gap-6">
-            <a href="#bonuses" className="text-foreground/80 hover:text-primary transition-colors">
-              Бонусы
-            </a>
-            <a href="#casinos" className="text-foreground/80 hover:text-primary transition-colors">
-              Казино
-            </a>
-          </nav>
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold glow">
-            Регистрация
-          </Button>
+          <button className="md:hidden">
+            <Icon name="Menu" size={24} />
+          </button>
         </div>
       </header>
 
-      <section className="relative overflow-hidden py-20 md:py-32">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10"></div>
+      <section className="relative overflow-hidden py-12 md:py-20">
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 via-primary/5 to-background"></div>
         <div className="container mx-auto px-4 relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-accent/20 text-accent border-accent/50 text-lg px-4 py-2">
-              🎰 Лучшие предложения 2025
-            </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
               <span className="text-accent">Бездепозитные</span>
               <br />
-              <span className="text-primary">бонусы казино</span>
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">бонусы казино</span>
               <br />
               <span className="text-foreground">2025</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+            <h2 className="text-lg md:text-2xl text-foreground font-semibold mb-8 leading-relaxed">
+              Фриспины за регистрацию без депозита с выводом
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground mb-8">
               Получите до <span className="text-gold font-bold">500₽</span> и <span className="text-gold font-bold">150 фриспинов</span> без депозита в лучших казино с бездепозитным бонусом за регистрацию с выводом
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col gap-3 max-w-md mx-auto">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-bold text-lg px-8 py-6 glow"
+                className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-bold text-base py-6 rounded-2xl shadow-lg shadow-primary/30"
                 onClick={() => window.open('https://cryptobosscasinopulse.com/?ref=MTQ2OTQyX3JlZmVycmFs', '_blank')}
               >
-                <Icon name="Rocket" className="mr-2" size={24} />
+                <Icon name="Rocket" className="mr-2" size={20} />
                 Получить бонус
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold text-lg px-8 py-6"
+                className="w-full border-2 border-border/50 text-foreground hover:bg-card font-semibold text-base py-6 rounded-2xl"
               >
-                <Icon name="PlayCircle" className="mr-2" size={24} />
+                <Icon name="PlayCircle" className="mr-2" size={20} />
                 Как получить
               </Button>
             </div>
