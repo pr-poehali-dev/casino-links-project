@@ -48,11 +48,11 @@ const Index = () => {
       badge: "⭐ NEW"
     },
     {
-      name: "Fresh Casino",
+      name: "Martin Contest",
       rating: 4.7,
       bonus: "400₽ + 120 FS",
       features: ["Cashback 10%", "Live игры", "Мобильная версия"],
-      link: "#",
+      link: "https://martin-contest1.com/start/registration?refcode=K2YEX",
       badge: null
     }
   ];
