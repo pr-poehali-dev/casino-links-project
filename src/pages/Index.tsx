@@ -62,6 +62,14 @@ const Index = () => {
       features: ["Быстрая регистрация", "Мобильное приложение", "24/7 поддержка"],
       link: "https://flagman-contest.com/start/registration?refcode=TVM7K",
       badge: null
+    },
+    {
+      name: "Hype Casino",
+      rating: 4.5,
+      bonus: "200₽ + 50 FS",
+      features: ["Множество игр", "Быстрые выплаты", "Бонусная программа"],
+      link: "https://hypecasinodrop.com/?ref=NTk4NzlfcmVmZXJyYWw=",
+      badge: null
     }
   ];
 
