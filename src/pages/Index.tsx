@@ -69,6 +69,9 @@ const Index = () => {
           </div>
           
           <nav className="hidden md:flex gap-6">
+            <a href="#how-to" className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium">
+              Как получить
+            </a>
             <a href="#bonuses" className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium">
               Бонусы
             </a>
@@ -88,6 +91,13 @@ const Index = () => {
         {menuOpen && (
           <div className="md:hidden border-t border-border/30 bg-background/95 backdrop-blur-md animate-in slide-in-from-top-2 duration-200">
             <nav className="container mx-auto px-4 py-4 flex flex-col gap-3">
+              <a 
+                href="#how-to" 
+                className="text-foreground/80 hover:text-primary transition-colors text-base font-medium py-2"
+                onClick={() => setMenuOpen(false)}
+              >
+                Как получить
+              </a>
               <a 
                 href="#bonuses" 
                 className="text-foreground/80 hover:text-primary transition-colors text-base font-medium py-2"
@@ -147,11 +157,80 @@ const Index = () => {
                 size="lg" 
                 variant="outline"
                 className="w-full border-2 border-border/50 text-foreground hover:bg-card font-semibold text-base py-6 rounded-2xl"
+                onClick={() => {
+                  const element = document.getElementById('how-to');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 <Icon name="PlayCircle" className="mr-2" size={20} />
                 Как получить
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-to" className="py-12 md:py-16 bg-card/10">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Как получить бонус</h2>
+            <p className="text-base text-muted-foreground">Четыре простых шага до выигрыша</p>
+          </div>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {[
+              {
+                step: 1,
+                title: "Выбери казино",
+                description: "Перейди по ссылке из нашего топа казино с лучшими бонусами",
+                icon: "MousePointerClick"
+              },
+              {
+                step: 2,
+                title: "Зарегистрируйся",
+                description: "Укажи email и создай пароль. Регистрация занимает менее 1 минуты",
+                icon: "UserPlus"
+              },
+              {
+                step: 3,
+                title: "Получи бонус",
+                description: "Бонус автоматически зачислится на твой счет сразу после регистрации",
+                icon: "Gift"
+              },
+              {
+                step: 4,
+                title: "Начни играть",
+                description: "Используй бонус и фриспины, выигрывай и выводи деньги",
+                icon: "Rocket"
+              }
+            ].map((item, index) => (
+              <Card 
+                key={index}
+                className="border-border/30 bg-card/90 backdrop-blur-sm hover:border-primary/50 transition-all"
+              >
+                <CardContent className="p-4 flex items-start gap-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-accent via-secondary to-primary rounded-2xl flex items-center justify-center text-xl font-bold text-white">
+                    {item.step}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Icon name={item.icon as any} className="text-primary" size={20} />
+                      <h3 className="text-lg font-bold">{item.title}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Button 
+              size="lg"
+              className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-bold text-base px-8 py-6 rounded-2xl shadow-lg shadow-primary/30"
+              onClick={() => window.open('https://cryptobosscasinopulse.com/?ref=MTQ2OTQyX3JlZmVycmFs', '_blank')}
+            >
+              <Icon name="Zap" className="mr-2" size={20} />
+              Получить бонус сейчас
+            </Button>
           </div>
         </div>
       </section>
