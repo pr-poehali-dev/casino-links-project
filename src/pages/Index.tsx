@@ -110,35 +110,35 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="bonuses" className="py-16 md:py-24">
+      <section id="bonuses" className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Виды бонусов</h2>
-            <p className="text-xl text-muted-foreground">Выбери свой бонус и начни выигрывать</p>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Виды бонусов</h2>
+            <p className="text-base text-muted-foreground">Выбери свой бонус и начни выигрывать</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {bonuses.map((bonus, index) => (
               <Card 
                 key={index} 
-                className="hover-scale border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden group cursor-pointer"
+                className="border-border/30 bg-card/90 backdrop-blur-sm overflow-hidden hover:border-primary/50 transition-all cursor-pointer"
               >
-                <CardHeader>
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Icon name={bonus.icon as any} className="text-white" size={32} />
+                <CardHeader className="pb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-accent via-secondary to-primary rounded-xl flex items-center justify-center mb-3">
+                    <Icon name={bonus.icon as any} className="text-white" size={24} />
                   </div>
-                  <CardTitle className="text-2xl">{bonus.title}</CardTitle>
-                  <CardDescription className="text-base">{bonus.description}</CardDescription>
+                  <CardTitle className="text-xl">{bonus.title}</CardTitle>
+                  <CardDescription className="text-sm">{bonus.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="flex gap-3 mb-4">
-                    <Badge className="bg-accent/20 text-accent border-accent/50 text-lg px-3 py-1">
+                <CardContent className="pt-0">
+                  <div className="flex gap-2 mb-3">
+                    <Badge className="bg-accent/20 text-accent border-accent/50 text-sm px-2 py-1">
                       {bonus.amount}
                     </Badge>
-                    <Badge className="bg-primary/20 text-primary border-primary/50 text-lg px-3 py-1">
+                    <Badge className="bg-primary/20 text-primary border-primary/50 text-sm px-2 py-1">
                       {bonus.freespins}
                     </Badge>
                   </div>
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+                  <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold rounded-xl">
                     Получить
                   </Button>
                 </CardContent>
@@ -148,75 +148,74 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="casinos" className="py-16 md:py-24 bg-muted/30">
+      <section id="casinos" className="py-12 md:py-16 bg-card/20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Топ казино с бонусами</h2>
-            <p className="text-xl text-muted-foreground">Проверенные казино с лучшими условиями</p>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Топ казино с бонусами</h2>
+            <p className="text-base text-muted-foreground">Проверенные казино с лучшими условиями</p>
           </div>
-          <div className="max-w-5xl mx-auto space-y-6">
+          <div className="max-w-4xl mx-auto space-y-4">
             {casinos.map((casino, index) => (
               <Card 
                 key={index} 
-                className="hover-scale border-border/50 bg-card/80 backdrop-blur-sm overflow-hidden"
+                className="border-border/30 bg-card/90 backdrop-blur-sm overflow-hidden hover:border-primary/50 transition-all"
               >
-                <CardContent className="p-6">
-                  <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-xl flex items-center justify-center text-3xl font-bold text-white">
+                <CardContent className="p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent via-secondary to-primary rounded-xl flex items-center justify-center text-xl font-bold text-white">
                       #{index + 1}
                     </div>
                     
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-2xl font-bold">{casino.name}</h3>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1 flex-wrap">
+                        <h3 className="text-lg font-bold">{casino.name}</h3>
                         {casino.badge && (
-                          <Badge className="bg-accent/20 text-accent border-accent/50">
+                          <Badge className="bg-accent/20 text-accent border-accent/50 text-xs">
                             {casino.badge}
                           </Badge>
                         )}
                       </div>
                       
-                      <div className="flex items-center gap-2 mb-3">
+                      <div className="flex items-center gap-2 mb-2">
                         <div className="flex">
                           {[...Array(5)].map((_, i) => (
                             <Icon 
                               key={i}
                               name="Star" 
-                              size={16}
+                              size={14}
                               className={i < Math.floor(casino.rating) ? "fill-gold text-gold" : "text-muted-foreground"}
                             />
                           ))}
                         </div>
-                        <span className="text-gold font-semibold">{casino.rating}</span>
+                        <span className="text-gold font-semibold text-sm">{casino.rating}</span>
                       </div>
                       
-                      <div className="flex flex-wrap gap-2 mb-4">
+                      <div className="flex flex-wrap gap-1.5 mb-2">
                         {casino.features.map((feature, i) => (
                           <Badge 
                             key={i}
                             variant="outline"
-                            className="border-primary/50 text-primary"
+                            className="border-primary/30 text-primary text-xs px-2 py-0.5"
                           >
                             {feature}
                           </Badge>
                         ))}
                       </div>
                       
-                      <div className="flex items-center gap-2 text-lg">
-                        <Icon name="Gift" className="text-accent" size={20} />
+                      <div className="flex items-center gap-2 text-sm">
+                        <Icon name="Gift" className="text-accent" size={16} />
                         <span className="text-muted-foreground">Бонус:</span>
                         <span className="font-bold text-gold">{casino.bonus}</span>
                       </div>
                     </div>
                     
-                    <div className="flex-shrink-0 w-full md:w-auto">
+                    <div className="flex-shrink-0">
                       <Button 
-                        size="lg"
-                        className="w-full md:w-auto bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-bold px-8 py-6 glow text-lg"
+                        size="sm"
+                        className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-bold px-6 py-5 rounded-xl shadow-lg shadow-primary/20"
                         onClick={() => window.open(casino.link, '_blank')}
                       >
                         Играть
-                        <Icon name="ArrowRight" className="ml-2" size={20} />
                       </Button>
                     </div>
                   </div>
@@ -227,23 +226,23 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <Card className="max-w-4xl mx-auto bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/30">
-            <CardContent className="p-8 md:p-12 text-center">
-              <Icon name="Zap" className="mx-auto mb-6 text-primary" size={64} />
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <Card className="max-w-3xl mx-auto bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 border-primary/30">
+            <CardContent className="p-6 md:p-10 text-center">
+              <Icon name="Zap" className="mx-auto mb-4 text-primary" size={48} />
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">
                 Начни выигрывать прямо сейчас!
               </h2>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-base text-muted-foreground mb-6">
                 Регистрируйся в топовом казино и получи щедрый бонус
               </p>
               <Button 
                 size="lg"
-                className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground font-bold text-lg px-12 py-6 glow-gold"
+                className="bg-gradient-to-r from-accent to-secondary hover:from-accent/90 hover:to-secondary/90 text-white font-bold text-base px-8 py-6 rounded-2xl shadow-lg shadow-accent/30"
                 onClick={() => window.open('https://cryptobosscasinopulse.com/?ref=MTQ2OTQyX3JlZmVycmFs', '_blank')}
               >
-                <Icon name="Trophy" className="mr-2" size={24} />
+                <Icon name="Trophy" className="mr-2" size={20} />
                 Получить 500₽ + 150 FS
               </Button>
             </CardContent>
@@ -251,10 +250,10 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="border-t border-border/50 py-8 mt-16">
+      <footer className="border-t border-border/30 py-6 mt-12">
         <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p className="mb-2">© 2025 CasinoHub. Все права защищены.</p>
-          <p className="text-sm">Играйте ответственно. 18+</p>
+          <p className="mb-1 text-sm">© 2025 Bezdep.love. Все права защищены.</p>
+          <p className="text-xs">Играйте ответственно. 18+</p>
         </div>
       </footer>
     </div>
