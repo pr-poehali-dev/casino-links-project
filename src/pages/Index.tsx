@@ -40,11 +40,11 @@ const Index = () => {
       badge: "🔥 ТОП"
     },
     {
-      name: "Golden Star",
+      name: "Beef Contest",
       rating: 4.8,
       bonus: "300₽ + 100 FS",
       features: ["Быстрый вывод", "Лицензия", "Русский интерфейс"],
-      link: "#",
+      link: "https://beef-contest.com/start/registration?refcode=LY1K7",
       badge: "⭐ NEW"
     },
     {
