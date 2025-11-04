@@ -54,6 +54,14 @@ const Index = () => {
       features: ["Cashback 10%", "Live игры", "Мобильная версия"],
       link: "https://martin-contest1.com/start/registration?refcode=K2YEX",
       badge: null
+    },
+    {
+      name: "Flagman Contest",
+      rating: 4.6,
+      bonus: "250₽ + 100 FS",
+      features: ["Быстрая регистрация", "Мобильное приложение", "24/7 поддержка"],
+      link: "https://flagman-contest.com/start/registration?refcode=TVM7K",
+      badge: null
     }
   ];
 
